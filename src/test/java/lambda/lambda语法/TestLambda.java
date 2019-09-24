@@ -11,9 +11,12 @@ package lambda.lambda语法;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 /**
  * 〈一句话简述该类/接口的功能〉
@@ -44,6 +47,11 @@ public class TestLambda {
 语法格式五：若 Lambda 体中只有一条语句， return 和 大括号都可以省略不写
 
 语法格式六：Lambda 表达式的参数列表的数据类型可以省略不写，因为JVM编译器通过上下文推断出，数据类型，即“类型推断”
+
+
+二、Lambda 表达式需要“函数式接口”的支持
+函数式接口：接口中只有一个抽象方法的接口，称为函数式接口。 可以使用注解 @FunctionalInterface 修饰
+可以检查是否是函数式接口
 
 */
 
@@ -91,4 +99,16 @@ public class TestLambda {
     /*
     -----------------------------------------------------------------------------语法格式六：Lambda 表达式的参数列表的数据类型可以省略不写，因为JVM编译器通过上下文推断出，数据类型，即“类型推断”
     */
+
+    @Test
+    public void test5(){
+        List<String> list = new ArrayList<>();
+        Predicate<String> p = str-> str.length()>1;
+        List<String> list1 = new ArrayList<>();
+        list.forEach(s1->{
+            if(p.test(s1)){
+                list1.add(s1);
+            }
+        });
+    }
 }
