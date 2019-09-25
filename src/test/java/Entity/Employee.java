@@ -38,6 +38,30 @@ public class Employee {
 
     private Double salary;
 
+    public Employee(String name) {
+        this.name = name;
+    }
+
+    public Employee(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    /**
+     * 对比年龄
+     * @param employee
+     * @param name
+     * @param age
+     * @return
+     */
+    public String ratioSizeAge(String name,Integer age){
+        if(this.getAge()>age){
+            return this.getName()+"比"+name+"的年龄大";
+        }else {
+            return this.getName()+"比"+name+"的年龄大";
+        }
+    }
+
     public static List<Employee> addEmployees() {
         List<Employee> list = new ArrayList<Employee>();
         Employee employee1 = new Employee(11112,"张三",10,1111.1);
