@@ -74,11 +74,11 @@ public class Employee {
         Employee employee6 = new Employee(11116,"张6",50,5555.5);
         Employee employee7 = new Employee(11116,"张6",50,5555.5);
         list.add(employee1);
+        list.add(employee6);
         list.add(employee2);
-        list.add(employee3);
         list.add(employee4);
         list.add(employee5);
-        list.add(employee6);
+        list.add(employee3);
         list.add(employee7);
         return list;
     }
