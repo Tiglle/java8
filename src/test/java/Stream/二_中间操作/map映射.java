@@ -32,7 +32,7 @@ public class map映射 {
 
     1.map——接收 Lambda ， 将元素转换成其他形式或提取信息，接收一个函数作为参数，该函数会被应用到每个元素上，并将其映射成一个新的元素。
 
-    f2.flatMap——接收一个函数作为参数，将多个流中的每个值都换成另一个流，然后把所有流连接成一个流
+    f2.flatMap——接收一个函数作为参数，将多个流中的每个值都应用此函数，然后把所有流连接成一个流
 
      */
 
@@ -41,11 +41,19 @@ public class map映射 {
         List<String> list = Arrays.asList("aaa","bbb","ccc","ddd","eee");
         /*1.map：接受一个lambda（函数）表达式作为参数，并将此lambda函数引用到每个元素上*/
         Stream<String> stringStream = list.stream().map(String::toUpperCase);
-        List<String> list1 = Arrays.asList("111","222");
-        List<ArrayList<String>> list2 = new ArrayList<>();
-        list2.add(list);
+
         /*2.flatMap：接受一个lambda（函数）表达式作为参数，然后把所有流连接成一个流*/
-        list.stream().map();
+        List<String> list1 = Arrays.asList("111","222");
+        List<String> list2 = Arrays.asList("333","444");
+        List<List<String>> list3 = new ArrayList<>();
+        list3.add(list1);
+        list3.add(list2);
+        System.out.println(list3);
+        //list3结构：[[111, 222], [333, 444]]
+        //map映射，操作Stream中的每个元素，如果Stream流是多层的，返回结果也是多层流
+        Stream<Stream<String>> streamStream = list3.stream().map(l->l.stream().map(String::toUpperCase));
+        //flagMap映射，操作Stream中的每个元素，如果Stream是多层的，会合并这些流，返回一层流
+        Stream<String> stringStream1 = list3.stream().flatMap(l -> l.stream().map(String::toUpperCase));
     }
 
     public static Stream<Character> filterCharacter(String str){
