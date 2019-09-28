@@ -66,14 +66,16 @@ public class Employee {
 
     public static List<Employee> addEmployees() {
         List<Employee> list = new ArrayList<Employee>();
+        Employee employee = new Employee(11112,"张2",10,0000.1);
         Employee employee1 = new Employee(11112,"张2",10,1111.1);
         Employee employee2 = new Employee(11113,"张3",20,2222.2);
         Employee employee3 = new Employee(11114,"张4",30,3333.3);
         Employee employee4 = new Employee(11115,"张5",40,4444.4);
         Employee employee5 = new Employee(11116,"张6",50,5555.5);
         Employee employee6 = new Employee(11116,"张6",50,5555.5);
-        Employee employee7 = new Employee(11116,"张6",50,5555.5);
+        Employee employee7 = new Employee(11116,"张7",50,6666.6);
         list.add(employee1);
+        list.add(employee);
         list.add(employee6);
         list.add(employee2);
         list.add(employee4);
