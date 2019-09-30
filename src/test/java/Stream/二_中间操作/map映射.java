@@ -9,6 +9,7 @@
  */
 package Stream.二_中间操作;
 
+import Entity.Employee;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -64,5 +65,11 @@ public class map映射 {
         }
 
         return list.stream();
+    }
+
+    @Test
+    public void test4(){
+        List<Employee> list = Employee.addEmployees();
+        list.stream().map(Employee::getAge).forEach(System.out::println);
     }
 }
