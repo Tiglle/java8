@@ -16,6 +16,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.LongStream;
 
 /**
  * 〈一句话简述该类/接口的功能〉
@@ -72,6 +73,47 @@ public class StreamTest {
                 .sorted();
     }
 
+    /*
+    5.有没有交易员在Milan工作的
+     */
+    @Test
+    public void test5() {
+        boolean inMilan = transactions.stream()
+                .anyMatch(t -> t.getTrader().getCity().equals("Milan"));
+    }
+
+    /*
+    6. 打印生活在剑桥Cambridge的交易员的所有交易额
+     */
+    @Test
+    public void test6() {
+        transactions.stream()
+               .filter(transaction -> transaction.getTrader().getCity().equals("Cambridge"))
+                .map(Transaction::getValue)
+                .forEach(System.out::println);
+    }
+
+    /*
+    7. 所有交易中，最高的交易额是多少
+     */
+    @Test
+    public void test7() {
+        Optional<Integer> max = transactions.stream()
+                .map(transaction -> transaction.getValue())
+                .max(Integer::compareTo);
+        System.out.println(max);
+    }
+
+    /*
+    8. 找到交易额最小的交易
+     */
+    @Test
+    public void test8() {
+        Optional<Integer> min = transactions.stream()
+                .map(transaction -> transaction.getValue())
+                .min(Integer::compareTo);
+        System.out.println(min);
+    }
 
     @Before
     public void before() {
