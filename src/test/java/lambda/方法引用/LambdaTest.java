@@ -42,8 +42,8 @@ public class LambdaTest {
     若Lambda 表达式  参数列表  的第一个参数，是实例方法的调用者 ，第二个参数是实例方法的参数时，可以使用3的方法引用
                                                             eg:
                                                             1.lambda参数列表的第一个参数.实例方法()
-                                                            2.lambda参数列表的第一个参数.实例方法(lambda.参数列表的第二个参数)
-                                                            3.lambda参数列表的第一个参数.实例方法(lambda.参数列表的第二个参数,lambda.参数列表的第三个参数)
+                                                            2.lambda参数列表的第一个参数.实例方法(lambda参数列表的第二个参数)
+                                                            3.lambda参数列表的第一个参数.实例方法(lambda参数列表的第二个参数,lambda参数列表的第三个参数)
                                                             4.等...
 
     二、构造器引用 :
@@ -54,6 +54,10 @@ public class LambdaTest {
     三、数组引用
     5.类型[] :: new;
 
+     */
+
+    /*
+    1.对象的引用 :: 实例方法名
      */
     @Test
     public void test1(){
@@ -67,9 +71,12 @@ public class LambdaTest {
         String s = supplier1.get();
     }
 
+    /*
+    2. 类名 :: 静态方法名
+     */
     @Test
     public void test2(){
-        /*类名 :: 静态方法名*/
+        /*2.类名 :: 静态方法名*/
         //Lambda写法
         Comparator<Integer> comparator = (x,y)->Integer.compare(x,y);
         //方法引用写法:Integer.compare方法和Comparator的抽象方法的 返回值，参数列表一致
@@ -77,6 +84,9 @@ public class LambdaTest {
 
     }
 
+    /*
+    3. 类名 :: 实例方法名
+     */
     @Test
     public void test3(){
         /*类名 :: 实例方法名*/
@@ -88,11 +98,14 @@ public class LambdaTest {
         BiFunction<String,String,Boolean> biFunction = (t,u)-> t.equals(u);
         BiFunction<String,String,Boolean> biFunction1 = String::equals;
 
-        //3.lambda参数列表的第一个参数.实例方法(lambda.参数列表的第二个参数,lambda.参数列表的第三个参数)
+        //3.lambda参数列表的第一个参数.实例方法(lambda参数列表的第二个参数,lambda参数列表的第三个参数)
         MyBiFunction<Employee,String,Integer,String> myBiFunction = (e,s,i)->e.ratioSizeAge(s,i);
         MyBiFunction<Employee,String,Integer,String> myBiFunction1 = Employee::ratioSizeAge;
     }
 
+    /*
+    4.类名 :: new
+     */
     @Test
     public void test4(){
         /*类名 :: new--构造器的参数列表，需要与函数式接口中参数列表保持一致！*/
@@ -113,6 +126,9 @@ public class LambdaTest {
         //....等
     }
 
+    /*
+    5.类型[] :: new;
+     */
     @Test
     public void test5() {
         /*类型[] :: new--构造器的参数列表，需要与函数式接口中参数列表保持一致！*/

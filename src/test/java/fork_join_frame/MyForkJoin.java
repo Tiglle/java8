@@ -23,7 +23,7 @@ import java.util.concurrent.RecursiveTask;
         fork/join框架：当一个线程执行完，会去其他未执行完的列队的末尾偷一个任务执行，保证没有空闲线程——“工作窃取”模式（work-stealing）
 
  3.fForkJoinPool:
-        ork/join的task要通过ForkJoinPool来执行，可以指定线程数量，不指定根据系统性能默认创建
+        fork/join的task要通过ForkJoinPool来执行，可以指定线程数量，不指定根据系统性能默认创建
  */
 
 

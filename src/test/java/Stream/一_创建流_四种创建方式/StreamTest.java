@@ -41,14 +41,14 @@ public class StreamTest {
       二、创建Stream的四种方式
 
           1.通过Collection 提供了两个方法
-          stream()   串行流
-          parallelStream()  并行流
+          Collection或子类.stream()   串行流
+          Collection或子类.parallelStream()  并行流
 
           2.通过 Arrays 中的 stream() 获取一个数组流
-           stream() 数组流
+           Arrays.stream() 数组流
 
           3.通过 Stream 类中静态方法 of()
-          of()
+          Stream.of()
 
           4.创建无限流
           Stream.iterate()  迭代
